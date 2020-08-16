@@ -1,25 +1,35 @@
 pipeline {
-  agent any
+  agent { docker { image 'maven:amazoncorretto' } }
+
     stages {
 
       stage('compile') {
-        echo "Compile phase"
+        steps {
+          echo "Compile phase"
+        }
       }
 
-       stage('Build') {
-        echo "Build phase"
+      stage('Build') {
+         steps {
+           echo "Build phase"
+          }
        }
 
-       stage('Test') {
-         echo "Test phase"
-       }
+     stage('Test') {
+           steps {
+              echo "Test phase"
+            }
+          }
 
-       stage('Test') {
-         echo "Test phase"
-       }
+       stage('Deploy') {
+            steps {
+               input message: 'Should i deploy?',
+                parameters: [booleanParam(defaultValue: true, description: 'Parameter to let know about deployment', name: 'deploy'),
+                choice(choices: ['DEV', 'STG', 'PROD'], description: 'Parameter to let know about deployment env', name: 'Env')],
+                submitterParameter: 'who'
+               echo "{WHO} says deploy {deploy} to {Env} Env"
+             }
+         }
+
     }
   }
-
-
-
-}

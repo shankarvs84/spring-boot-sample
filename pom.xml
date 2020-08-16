@@ -49,22 +49,22 @@
 				<version>3.0.0</version>
 				<executions>
 					<!-- Remove existing image from local repo -->
-					<execution>
+					<!--<execution>
 						<id>docker-clean</id>
 						<phase>install</phase>
 						<goals>
 							<goal>exec</goal>
 						</goals>
 
-						<!--<configuration>
+						<configuration>
 							<executable>docker</executable>
 							<workingDirectory>${project.basedir}</workingDirectory>
 							<arguments>
 								<argument>rmi</argument>
 								<argument>${project.artifactId}:${project.version}</argument>
 							</arguments>
-						</configuration>-->
-					</execution>
+						</configuration>
+					</execution>-->
 
 					<!--
 

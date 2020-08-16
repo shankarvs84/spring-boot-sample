@@ -56,14 +56,14 @@
 							<goal>exec</goal>
 						</goals>
 
-						<configuration>
+						<!--<configuration>
 							<executable>docker</executable>
 							<workingDirectory>${project.basedir}</workingDirectory>
 							<arguments>
 								<argument>rmi</argument>
 								<argument>${project.artifactId}:${project.version}</argument>
 							</arguments>
-						</configuration>
+						</configuration>-->
 					</execution>
 
 					<!--

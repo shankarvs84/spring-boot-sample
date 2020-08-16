@@ -27,7 +27,7 @@ pipeline {
                 parameters: [booleanParam(defaultValue: true, description: 'Parameter to let know about deployment', name: 'deploy'),
                 choice(choices: ['DEV', 'STG', 'PROD'], description: 'Parameter to let know about deployment env', name: 'Env')],
                 submitterParameter: 'who'
-               sh  "echo ${WHO} says deploy ${deploy} to ${Env} Env"
+               sh  "echo ${who} says deploy ${deploy} to ${Env} Env"
              }
          }
 

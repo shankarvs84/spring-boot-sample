@@ -23,13 +23,13 @@ pipeline {
 
        stage('Deploy') {
             steps {
-             step {
+
                input message: 'Should i deploy?',
                 parameters: [booleanParam(defaultValue: true, description: 'Parameter to let know about deployment', name: 'deploy'),
                 choice(choices: ['DEV', 'STG', 'PROD'], description: 'Parameter to let know about deployment env', name: 'Env')],
                 submitterParameter: 'who'
-                sh  "echo ${params.who} says deploy ${params.deploy} to ${params.Env} Env"
-                }
+                sh  'echo "${params.who}" says deploy "${params.deploy}" to "${params.Env}" Env'
+
              }
          }
 

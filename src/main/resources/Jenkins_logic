@@ -1,23 +1,23 @@
 pipeline {
-  agent { docker { image 'maven:amazoncorretto' } }
+  agent any
 
     stages {
 
       stage('compile') {
         steps {
-          echo "Compile phase"
+          sh "echo Compile phase"
         }
       }
 
       stage('Build') {
          steps {
-           echo "Build phase"
+           sh "echo Build phase"
           }
        }
 
      stage('Test') {
            steps {
-              echo "Test phase"
+             sh "echo Test phase"
             }
           }
 
@@ -27,7 +27,7 @@ pipeline {
                 parameters: [booleanParam(defaultValue: true, description: 'Parameter to let know about deployment', name: 'deploy'),
                 choice(choices: ['DEV', 'STG', 'PROD'], description: 'Parameter to let know about deployment env', name: 'Env')],
                 submitterParameter: 'who'
-               echo "{WHO} says deploy {deploy} to {Env} Env"
+               sh  "echo {WHO} says deploy {deploy} to {Env} Env"
              }
          }
 
